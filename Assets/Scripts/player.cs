@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class player : MonoBehaviour
 {
     public CapsuleCollider2D playerCollider;
-    bool facingright = true;
+    //bool facingleft = true;
     public Rigidbody2D rb;
     float move;
     float playerSpeed = 30f, jumpPower = 300f;
@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpPower;
         }
 
-        if (move < 0f && !facingright)
-        {
-            Flip();
-        }
-        else if (move > 0f && facingright)
-        {
-            Flip();
-        }
+        //if (move < 0f && !facingleft)
+        //{
+        //    Flip();
+        //}
+        //else if (move > 0f && facingleft)
+        //{
+        //    Flip();
+        //}
     }
 
     private bool isGrounded()
@@ -44,11 +44,11 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2((move * playerSpeed), 0);
     }
 
-    void Flip()
-    {
-        facingright = !facingright;
-        Vector2 currentScale = transform.localScale;
-        currentScale.x *= -1;
-        transform.localScale = currentScale;
-    }
+    //void Flip()
+    //{
+    //    facingleft = !facingleft;
+    //    Vector2 currentScale = transform.localScale;
+    //    currentScale.x *= -1;
+    //    transform.localScale = currentScale;
+    //}
 }
