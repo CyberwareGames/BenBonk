@@ -14,12 +14,14 @@ public class shoot : MonoBehaviour
     public float speed = .5f;
     public float attackRate = 2f;
     float nextAttackTime = 0f;
+
     private void Update()
     {
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                FindObjectOfType<ScreenShaker>().shake = true;
                 shooting();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
