@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    private float EnemySpeed = 10f;
-    // Start is called before the first frame update
+    public Rigidbody2D enemy;
+    public int enemySpeed;
     void Start()
     {
-        
+        enemySpeed = 4 + GameManager.WaveNum / 4 ;
+    }
+    private void Update()
+    {
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector2.right * EnemySpeed * Time.deltaTime);
-        Destroy(gameObject, 1f);
+        enemy.velocity = new Vector2(enemySpeed, enemy.velocity.y);
     }
 }
