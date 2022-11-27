@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor.Search;
 using UnityEngine;
 
-public class shoot : MonoBehaviour
+public class Shoot : MonoBehaviour
 {
     public GameObject player;
     public GameObject bullet;

@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private float health = 3f;
-    public float dollars = 0;
-    // Start is called before the first frame update
+    private float health;
     void Start()
     {
-        
+        health = 3f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (health <= 0)
         {
+            GameManager.Coins += 5;
+            GameManager.Kills++;
+            GameManager.EnemyCount--;
             Destroy(gameObject);
-            dollars++;
-            Debug.Log("$" + dollars);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Bullet")
+        if(collision.gameObject.tag == "Bullet")
         {
-             
+            decreaseHealth();
         }
     }
     public void decreaseHealth()

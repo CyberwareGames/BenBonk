@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class bulletmovement : MonoBehaviour
+public class BulletMovement : MonoBehaviour
 {
-    private float bulletspeed = -100f;
-    // Start is called before the first frame update
+    private float bulletSpeed = -100f;
     void Start()
     {
         
@@ -15,19 +14,12 @@ public class bulletmovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right * bulletspeed * Time.deltaTime);
+        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
         Destroy(gameObject, 1f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.name == "Wall")
-        {
-            Destroy(gameObject);
-        }
-        if(collision.name == "Enemy")
-        {
-            Destroy(gameObject);
-            collision.gameObject.GetComponent<EnemyHealth>().decreaseHealth();
-        }
+        if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Ground")
+        Destroy(gameObject);
     }
 }
