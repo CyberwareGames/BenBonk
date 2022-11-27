@@ -20,6 +20,14 @@ public class bulletmovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.name == "Wall")
+        {
+            Destroy(gameObject);
+        }
+        if(collision.name == "Enemy")
+        {
+            Destroy(gameObject);
+            collision.gameObject.GetComponent<EnemyHealth>().decreaseHealth();
+        }
     }
 }
