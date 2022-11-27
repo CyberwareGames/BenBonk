@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public int enemySpeed;
     void Start()
     {
-        enemySpeed = 4 + GameManager.WaveNum / 4 ;
+        enemySpeed = 4 + GameManager.WaveNum / 3 ;
     }
     private void Update()
     {

@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public BoxCollider2D playerCollider;
+    public CapsuleCollider2D playerCollider;
     public LayerMask groundLayer;
     public Rigidbody2D rb;
     float move;
     public float playerSpeed = 30f;
-    public float jumpPower = 40f;
+    public float jumpPower = 36f;
 
     public bool isgrounded;
 
     void Start()
     {
-        playerCollider = gameObject.GetComponent<BoxCollider2D>();
+        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
     void Update()
