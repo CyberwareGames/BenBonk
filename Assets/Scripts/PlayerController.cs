@@ -8,7 +8,10 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Rigidbody2D rb;
     float move;
-    float playerSpeed = 30f, jumpPower = 35f;
+    public float playerSpeed = 30f;
+    public float jumpPower = 40f;
+
+    public bool isgrounded;
 
     void Start()
     {
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = Input.GetAxis("Horizontal");
+        isgrounded = isGrounded();
 
         if(isGrounded() && Input.GetKeyDown(KeyCode.Space))
         {

@@ -1452,6 +1452,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   rb: {fileID: 1268236551}
+  playerSpeed: 30
+  jumpPower: 40
+  isgrounded: 0
 --- !u!61 &1268236553
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1774,7 +1777,7 @@ GameObject:
   - component: {fileID: 1444297247}
   - component: {fileID: 1444297246}
   - component: {fileID: 1444297245}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2153,7 +2156,7 @@ GameObject:
   - component: {fileID: 1626414253}
   - component: {fileID: 1626414252}
   - component: {fileID: 1626414251}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
