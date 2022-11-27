@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public CapsuleCollider2D playerCollider;
-    //bool facingleft = true;
+    public BoxCollider2D playerCollider;
+    public LayerMask groundLayer;
     public Rigidbody2D rb;
     float move;
-    float playerSpeed = 30f, jumpPower = 300f;
+    float playerSpeed = 30f, jumpPower = 35f;
 
     void Start()
     {
-        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
+        playerCollider = gameObject.GetComponent<BoxCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -24,31 +24,16 @@ public class player : MonoBehaviour
             rb.velocity = Vector2.up * jumpPower;
         }
 
-        //if (move < 0f && !facingleft)
-        //{
-        //    Flip();
-        //}
-        //else if (move > 0f && facingleft)
-        //{
-        //    Flip();
-        //}
     }
 
     private bool isGrounded()
     {
-        bool isGrounded = Physics.Raycast(transform.position, -gameObject.transform.up, playerCollider.bounds.extents.y + 0.1f);
-        return isGrounded;
+        RaycastHit2D raycastHit2D = Physics2D.BoxCast(playerCollider.bounds.center , playerCollider.bounds.size - new Vector3(0.1f, 0f, 0f), 0f, Vector2.down, 1f, groundLayer);
+        return raycastHit2D.collider != null;
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2((move * playerSpeed), 0);
+        rb.velocity = new Vector2((move * playerSpeed), rb.velocity.y);
     }
 
-    //void Flip()
-    //{
-    //    facingleft = !facingleft;
-    //    Vector2 currentScale = transform.localScale;
-    //    currentScale.x *= -1;
-    //    transform.localScale = currentScale;
-    //}
 }
