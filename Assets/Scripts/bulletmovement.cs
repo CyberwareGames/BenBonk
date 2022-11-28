@@ -6,6 +6,7 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
     private float bulletSpeed = -100f;
+    private int pierce = 0;
     void Start()
     {
         
@@ -20,6 +21,12 @@ public class BulletMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Ground")
-        Destroy(gameObject);
+        {
+            pierce++;
+            if (pierce >= Shoot.BulletPierce)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

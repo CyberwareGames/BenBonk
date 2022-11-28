@@ -29,6 +29,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void decreaseHealth()
     {
-        health--;
+        health -= Shoot.BulletDamage;
     }
 }

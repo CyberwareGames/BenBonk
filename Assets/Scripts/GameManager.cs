@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemy;
     public static int EnemyCount;
     public static int Kills;
-    public static int Coins;
+    public static double Coins;
     public static int WaveNum;
     void Start()
     {
