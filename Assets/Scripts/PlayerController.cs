@@ -8,10 +8,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Rigidbody2D rb;
     float move;
-    public float playerSpeed = 30f;
-    public float jumpPower = 36f;
+    public float playerSpeed;
+    public float jumpPower = 42f;
 
-    public bool isgrounded;
 
     void Start()
     {
@@ -21,12 +20,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         move = Input.GetAxis("Horizontal");
-        isgrounded = isGrounded();
 
-        if(isGrounded() && Input.GetKeyDown(KeyCode.Space))
+        if (isGrounded())
         {
-            rb.velocity = Vector2.up * jumpPower;
+            playerSpeed = 30f;
+            if (Input.GetKeyDown(KeyCode.Space))
+                rb.velocity = Vector2.up * jumpPower;
         }
+        else playerSpeed = 20f;
 
     }
 

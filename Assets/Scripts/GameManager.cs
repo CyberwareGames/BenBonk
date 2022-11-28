@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(EnemyCount < 2 + WaveNum)
+        if(EnemyCount < 2 + WaveNum/3)
         {
             WaveNum++;
             Instantiate(enemy, new Vector3(Random.Range(-160f, -50f), 14f), Quaternion.identity);
@@ -27,8 +27,7 @@ public class GameManager : MonoBehaviour
             Instantiate(enemy, new Vector3(Random.Range(-160f, -50f), 14f), Quaternion.identity);
             Instantiate(enemy, new Vector3(Random.Range(-160f, -50f), 14f), Quaternion.identity);
             Instantiate(enemy, new Vector3(Random.Range(-160f, -50f), 14f), Quaternion.identity);
-            Instantiate(enemy, new Vector3(Random.Range(-160f, -50f), 14f), Quaternion.identity);
-            EnemyCount += 6;
+            EnemyCount += 5;
         }
     }
 }
