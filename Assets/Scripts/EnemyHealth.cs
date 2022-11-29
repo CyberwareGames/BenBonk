@@ -16,7 +16,6 @@ public class EnemyHealth : MonoBehaviour
         {
             GameManager.Coins += 5;
             GameManager.Kills++;
-            GameManager.EnemyCount--;
             Destroy(gameObject);
         }
     }

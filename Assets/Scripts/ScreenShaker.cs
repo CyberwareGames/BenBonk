@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScreenShaker : MonoBehaviour
 {
-    public float duration = 0.6f;
+    public float duration = 0.2f;
     public bool shake = false;
     public AnimationCurve curve;
 

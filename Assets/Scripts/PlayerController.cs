@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2((move * playerSpeed), rb.velocity.y);
+        if(rb.velocity.y < 0f)
+            rb.AddForce(new Vector2(0f, -jumpPower/4f), ForceMode2D.Impulse);
     }
 
 }
