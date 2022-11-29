@@ -36,6 +36,7 @@ public class Shoot : MonoBehaviour
     public int PierceCounter = 0;
     private void Start()
     {
+        upgradePanel.SetActive(false);
         FireRateCoinTXT = FireRateCoinReqirementTXT.GetComponent<TextMeshProUGUI>();
         DamageCoinTXT = DamageCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         PierceCoinTXT = PierceCoinRequirementTXT.GetComponent<TextMeshProUGUI>();

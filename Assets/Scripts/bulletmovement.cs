@@ -12,7 +12,6 @@ public class BulletMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
