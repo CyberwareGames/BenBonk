@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -19,5 +20,15 @@ public class UIManager : MonoBehaviour
         KillsText.text = "Kills: " + GameManager.Kills;
         CoinsText.text = "Coins: $" + GameManager.Coins;
         
+    }
+
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(1);
     }
 }

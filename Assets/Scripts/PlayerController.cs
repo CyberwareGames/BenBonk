@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     float move;
     public float playerSpeed;
-    public float jumpPower = 46f;
+    public float jumpPower = 40f;
 
 
     void Start()
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.up * jumpPower;
         }
         else playerSpeed = 20f;
-
     }
 
     private bool isGrounded()
@@ -39,8 +38,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2((move * playerSpeed), rb.velocity.y);
-        if(rb.velocity.y < 0f)
-            rb.AddForce(new Vector2(0f, -jumpPower/4f), ForceMode2D.Impulse);
+        if(rb.velocity.y <= 0f)
+            rb.AddForce(new Vector2(0f, -jumpPower), ForceMode2D.Impulse);
     }
-
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            FindObjectOfType<GameManager>().LosePanel.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 }

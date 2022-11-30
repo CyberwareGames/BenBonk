@@ -11,12 +11,15 @@ public class GameManager : MonoBehaviour
     public GameObject Wave5;
     public GameObject Wave6;
 
-
     public static int Kills;
     public static double Coins;
     public static int WaveNum;
+
+    public GameObject LosePanel;
     void Start()
     {
+        Time.timeScale = 1f;
+        LosePanel.SetActive(false);
         Wave1.SetActive(false);
         Wave2.SetActive(false);
         Wave3.SetActive(false);
