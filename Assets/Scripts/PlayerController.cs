@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     float move;
     public float playerSpeed;
     public float jumpPower = 40f;
+    public AudioSource Jump;
 
 
     void Start()
@@ -25,7 +26,10 @@ public class PlayerController : MonoBehaviour
         {
             playerSpeed = 30f;
             if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Jump.Play();
                 rb.velocity = Vector2.up * jumpPower;
+            }
         }
         else playerSpeed = 20f;
     }
