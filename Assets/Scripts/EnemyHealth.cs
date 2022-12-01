@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            GameManager.Coins += 5;
+            GameManager.Coins += 20;
             GameManager.Kills++;
             Destroy(gameObject);
         }
@@ -28,6 +28,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void decreaseHealth()
     {
-        health -= Shoot.BulletDamage;
+        health -= Upgrades.BulletDamage;
     }
 }

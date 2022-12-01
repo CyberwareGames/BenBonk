@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     float move;
     public float playerSpeed;
-    public float jumpPower = 40f;
+    public float jumpPower = 36f;
     public AudioSource Jump;
 
 
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded())
         {
-            playerSpeed = 30f;
+            playerSpeed = 28f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump.Play();
@@ -42,8 +42,8 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2((move * playerSpeed), rb.velocity.y);
-        if(rb.velocity.y <= 0f)
-            rb.AddForce(new Vector2(0f, -jumpPower), ForceMode2D.Impulse);
+        if(rb.velocity.y <= 1f)
+            rb.AddForce(new Vector2(0f, -jumpPower*4), ForceMode2D.Impulse);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {

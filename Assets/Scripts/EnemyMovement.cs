@@ -6,16 +6,12 @@ public class EnemyMovement : MonoBehaviour
 {
     public Rigidbody2D enemy;
     public int enemySpeed;
-    public float velx;
-    public float vely;
     void Start()
     {
         enemySpeed = 4;
     }
     private void Update()
     {
-        velx = enemy.velocity.x;
-        vely = enemy.velocity.y;
     }
 
     void FixedUpdate()
