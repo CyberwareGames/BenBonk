@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     float move;
     public float playerSpeed;
-    public float jumpPower = 36f;
+    public float jumpPower = 40f;
     public AudioSource Jump;
 
 

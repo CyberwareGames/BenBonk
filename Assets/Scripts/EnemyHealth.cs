@@ -5,16 +5,20 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private float health;
+    public EnemyMovement movement;
+    public Rigidbody2D enemyRB;
     void Start()
     {
+        movement.enabled = true;
         health = 3f;
     }
 
     void Update()
     {
+
         if (health <= 0)
         {
-            GameManager.Coins += 20;
+            GameManager.Coins += 15;
             GameManager.Kills++;
             Destroy(gameObject);
         }
@@ -24,7 +28,15 @@ public class EnemyHealth : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             decreaseHealth();
+            movement.enabled = false;
+            enemyRB.velocity = new Vector2(-12f, enemyRB.velocity.y);
+            Invoke("EnableMovement", 0.1f);
+            
         }
+    }
+    private void EnableMovement()
+    {
+        movement.enabled = true;
     }
     public void decreaseHealth()
     {

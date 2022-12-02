@@ -11,19 +11,19 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject spawn;
-    public static float attackRate = 2f;
+    public static float attackRate;
     
-    float nextAttackTime = 0f;
+    private float nextAttackTime;
     
 
     private void Start()
     {
-        
+        nextAttackTime = 0;
+        attackRate = 2f;
     }
     private void Update()
     {
-        bullet.transform.localScale = new Vector3(0.3f * Upgrades.BulletPierce * Upgrades.BulletPierce, 0.3f * Upgrades.BulletDamage, 1f);
-        bullet.transform.localScale = new Vector3(0.3f * Upgrades.BulletPierce * Upgrades.BulletPierce, 0.3f * Upgrades.BulletDamage, 1f);
+        bullet.transform.localScale = new Vector3(0.3f * Upgrades.BulletPierce, 0.2f * Upgrades.BulletDamage, 1f);
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKey(KeyCode.Mouse0))

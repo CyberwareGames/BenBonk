@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bbb79cb1711eb45800e36e3f9e49b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 5277620979603907612}
+  enemyRB: {fileID: 5843549220372874140}
 --- !u!70 &444538963105558028
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,8 +154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 5843549220372874140}
   enemySpeed: 4
-  velx: 0
-  vely: 0
 --- !u!95 &1001843438825672992
 Animator:
   serializedVersion: 4
