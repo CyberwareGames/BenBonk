@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public GameObject Wave5;
     public GameObject Wave6;
     public GameObject Wave7;
+    public GameObject Wave8;
+    public GameObject Wave9;
 
     public static int Kills;
     public static double Coins;
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
         Wave5.SetActive(false);
         Wave6.SetActive(false);
         Wave7.SetActive(false);
+        Wave8.SetActive(false);
+        Wave9.SetActive(false);
         WaveNum = 1;
         Kills = 0;
         Coins = 0;
@@ -69,6 +73,18 @@ public class GameManager : MonoBehaviour
                 break;
             case 7:
                 Wave7.SetActive(true);
+                if (Kills >= 75)
+                    WaveNum++;
+                break;
+            case 8:
+                Wave8.SetActive(true);
+                if (Kills >= 95)
+                    WaveNum++;
+                break;
+            case 9:
+                Wave9.SetActive(true);
+                if(Kills >= 99)
+                    LosePanel.SetActive(true);
                 break;
         }
     }

@@ -43,13 +43,16 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = new Vector2((move * playerSpeed), rb.velocity.y);
         if(rb.velocity.y <= 1f)
-            rb.AddForce(new Vector2(0f, -jumpPower*4), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(0f, -jumpPower), ForceMode2D.Impulse);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
             FindObjectOfType<GameManager>().LosePanel.SetActive(true);
+            Upgrades.PierceCounter = 1;
+            Upgrades.FireRateCounter = 1;
+            Upgrades.DamageCounter = 1;
             Time.timeScale = 0f;
         }
     }

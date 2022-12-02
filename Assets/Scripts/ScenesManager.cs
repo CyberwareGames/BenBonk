@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class ScenesManager : MonoBehaviour
 {
     public AudioSource Click;
+
+    void Start()
+    {
+        Time.timeScale = 1f;
+    }
     public void LoadLevel()
     {
         SceneManager.LoadScene(1);

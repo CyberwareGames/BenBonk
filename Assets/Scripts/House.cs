@@ -9,6 +9,9 @@ public class House : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             FindObjectOfType<GameManager>().LosePanel.SetActive(true);
+            Upgrades.PierceCounter = 1;
+            Upgrades.FireRateCounter = 1;
+            Upgrades.DamageCounter = 1;
             Time.timeScale = 0f;
         }
     }

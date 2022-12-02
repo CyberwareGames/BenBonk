@@ -22,7 +22,7 @@ public class BulletMovement : MonoBehaviour
         if(collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Ground")
         {
             pierce++;
-            if (pierce >= Upgrades.BulletPierce)
+            if (pierce >= Upgrades.PierceCounter)
             {
                 Destroy(gameObject);
             }

@@ -10,35 +10,31 @@ public class Upgrades : MonoBehaviour
     //Pierce
     public GameObject PierceCoinRequirementTXT;
     TextMeshProUGUI PierceCoinTXT;
-    private int PierceLimit = 4;
-    public static float BulletPierce;
-    private int PierceCounter;
-    private double PierceCoinRequirement = 40;
+    private int PierceLimit = 5;
+    public static int PierceCounter;
+    private double PierceCoinRequirement = 30;
 
     //FireRate
     public GameObject FireRateCoinReqirementTXT;
     TextMeshProUGUI FireRateCoinTXT;
-    private int FireRateLimit = 4;
-    private int FireRateCounter;
-    private double FireRateCoinReqirement = 60;
+    private int FireRateLimit = 7;
+    public static int FireRateCounter;
+    private double FireRateCoinReqirement = 70;
 
     //Damage
     public GameObject DamageCoinRequirementTXT;
     TextMeshProUGUI DamageCoinTXT;
-    private int DamageLimit = 2;
-    public static float BulletDamage;
-    private int DamageCounter;
-    private double DamageCoinRequirement = 80;
+    private int DamageLimit = 9;
+    public static int DamageCounter;
+    private double DamageCoinRequirement = 90;
 
 
     void Start()
     {
         upgradePanel.SetActive(false);
-        FireRateCounter = 0;
-        BulletDamage = 1;
-        DamageCounter = 0;
-        PierceCounter = 0;
-        BulletPierce = 1;
+        FireRateCounter = 1;
+        DamageCounter = 1;
+        PierceCounter = 1;
         PierceCoinTXT = PierceCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         FireRateCoinTXT = FireRateCoinReqirementTXT.GetComponent<TextMeshProUGUI>();
         DamageCoinTXT = DamageCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
@@ -51,16 +47,21 @@ public class Upgrades : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.B))
         {
-            upgradeActive = !upgradeActive;
-            upgradePanel.SetActive(upgradeActive);
-            if (upgradeActive)
-            {
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                Time.timeScale = 1f;
-            }
+            Pause();
+        }
+    }
+
+    public void Pause()
+    {
+        upgradeActive = !upgradeActive;
+        upgradePanel.SetActive(upgradeActive);
+        if (upgradeActive)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 
@@ -71,7 +72,6 @@ public class Upgrades : MonoBehaviour
         {
             PierceCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - PierceCoinRequirement);
-            BulletPierce++;
             PierceCoinRequirement = Math.Round(PierceCoinRequirement * 1.8);
             PierceCoinTXT.text = "$" + PierceCoinRequirement.ToString();
             if (PierceCounter >= PierceLimit)
@@ -87,8 +87,7 @@ public class Upgrades : MonoBehaviour
         {
             FireRateCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - FireRateCoinReqirement);
-            Shoot.attackRate += 1;
-            FireRateCoinReqirement = Math.Round(FireRateCoinReqirement * 2.2);
+            FireRateCoinReqirement = Math.Round(FireRateCoinReqirement * 1.8);
             FireRateCoinTXT.text = "$" + FireRateCoinReqirement.ToString();
             if (FireRateCounter >= FireRateLimit)
             {
@@ -103,8 +102,7 @@ public class Upgrades : MonoBehaviour
         {
             DamageCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - DamageCoinRequirement);
-            BulletDamage++;
-            DamageCoinRequirement = Math.Round(DamageCoinRequirement * 2.6);
+            DamageCoinRequirement = Math.Round(DamageCoinRequirement * 1.8);
             DamageCoinTXT.text = "$" + DamageCoinRequirement.ToString();
             if (DamageCounter >= DamageLimit)
             {
@@ -112,9 +110,4 @@ public class Upgrades : MonoBehaviour
             }
         }
     }
-
-
-
-
-    
 }

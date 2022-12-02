@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour
 {
     private float health;
-    public EnemyMovement movement;
+    public BossMovement movement;
     public Rigidbody2D enemyRB;
     void Start()
     {
         movement.enabled = true;
-        health = 3f;
+        health = 300f;
     }
 
     void Update()
@@ -18,20 +18,20 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            GameManager.Coins += 15;
+            GameManager.Coins += 55;
             GameManager.Kills++;
             Destroy(gameObject);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Bullet")
         {
             decreaseHealth();
             movement.enabled = false;
-            enemyRB.velocity = new Vector2(-15f, enemyRB.velocity.y);
-            Invoke("EnableMovement", 0.11f);
-            
+            enemyRB.velocity = new Vector2(-10f, enemyRB.velocity.y);
+            Invoke("EnableMovement", 0.1f);
+
         }
     }
     private void EnableMovement()

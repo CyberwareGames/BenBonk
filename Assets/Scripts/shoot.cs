@@ -1,36 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
     public GameObject spawn;
-    public static float attackRate;
-    
     private float nextAttackTime;
     
 
     private void Start()
     {
         nextAttackTime = 0;
-        attackRate = 2f;
     }
     private void Update()
     {
-        bullet.transform.localScale = new Vector3(0.3f * Upgrades.BulletPierce, 0.2f * Upgrades.BulletDamage, 1f);
+        bullet.transform.localScale = new Vector3(0.6f * Upgrades.PierceCounter, 0.12f * Upgrades.DamageCounter, 1f);
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 FindObjectOfType<ScreenShaker>().shake = true;
                 Shooting();
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.time + 1f / (Upgrades.FireRateCounter + 1f);
             }
         }
     }
