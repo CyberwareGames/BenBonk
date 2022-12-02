@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ScenesManager : MonoBehaviour
 {
+    public AudioSource Click;
     public void LoadLevel()
     {
         SceneManager.LoadScene(1);
@@ -12,5 +13,9 @@ public class ScenesManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void PlayClick()
+    {
+        Click.Play();
     }
 }
