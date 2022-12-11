@@ -1,16 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
-    private float health;
+    public float health;
     public BossMovement movement;
-    public Rigidbody2D enemyRB;
+    public Rigidbody2D bossRB;
+    private float pushback;
     void Start()
     {
         movement.enabled = true;
-        health = 300f;
     }
 
     void Update()
@@ -18,9 +16,10 @@ public class BossHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            GameManager.Coins += 55;
+            GameManager.Coins += 65;
             GameManager.Kills++;
             Destroy(gameObject);
+            pushback = -(Upgrades.DamageCounter/2f) -(Upgrades.PierceCounter/4f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -29,8 +28,8 @@ public class BossHealth : MonoBehaviour
         {
             decreaseHealth();
             movement.enabled = false;
-            enemyRB.velocity = new Vector2(-10f, enemyRB.velocity.y);
-            Invoke("EnableMovement", 0.1f);
+            bossRB.velocity = new Vector2(pushback, bossRB.velocity.y);
+            Invoke("EnableMovement", pushback/10f);
 
         }
     }

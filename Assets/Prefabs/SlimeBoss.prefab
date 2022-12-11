@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 10
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6545224470735935697}
-  enemySpeed: 10
+  enemySpeed: 8
 --- !u!114 &7388309626421095709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d62090df541e248b2d463f2495e300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 200
   movement: {fileID: 3733548606573208260}
-  enemyRB: {fileID: 6545224470735935697}
+  bossRB: {fileID: 6545224470735935697}
 --- !u!95 &3971656562796720815
 Animator:
   serializedVersion: 4

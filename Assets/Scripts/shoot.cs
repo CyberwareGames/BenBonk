@@ -5,7 +5,6 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public GameObject spawn;
     private float nextAttackTime;
-    
 
     private void Start()
     {
@@ -36,5 +35,15 @@ public class Shoot : MonoBehaviour
     {
         GameObject projectile = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
         projectile.transform.right = transform.right;
+        if(Upgrades.ExtraBulletCounter >= 2)
+        {
+            GameObject projectile2 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
+            projectile2.transform.right = transform.right + projectile2.transform.up/20f;
+        }
+        if (Upgrades.ExtraBulletCounter >= 3)
+        {
+            GameObject projectile3 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
+            projectile3.transform.right = transform.right - projectile3.transform.up / 20f;
+        }
     }
 }

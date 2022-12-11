@@ -43,47 +43,47 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 Wave1.SetActive(true);
-                if (Kills >= 5)
+                if (Kills >= 8)
                     WaveNum++;
                 break;
             case 2:
                 Wave2.SetActive(true);
-                if (Kills >= 15)
+                if (Kills >= 18)
                     WaveNum++;
                 break;
             case 3:
                 Wave3.SetActive(true);
-                if (Kills >= 25)
+                if (Kills >= 28)
                     WaveNum++;
                 break;
             case 4:
                 Wave4.SetActive(true);
-                if (Kills >= 35)
+                if (Kills >= 38)
                     WaveNum++;
                 break;
             case 5:
                 Wave5.SetActive(true);
-                if (Kills >= 45)
+                if (Kills >= 48)
                     WaveNum++;
                 break;
             case 6:
                 Wave6.SetActive(true);
-                if (Kills >= 55)
+                if (Kills >= 58)
                     WaveNum++;
                 break;
             case 7:
                 Wave7.SetActive(true);
-                if (Kills >= 75)
+                if (Kills >= 78)
                     WaveNum++;
                 break;
             case 8:
                 Wave8.SetActive(true);
-                if (Kills >= 95)
+                if (Kills >= 98)
                     WaveNum++;
                 break;
             case 9:
                 Wave9.SetActive(true);
-                if(Kills >= 99)
+                if(Kills >= 100)
                     LosePanel.SetActive(true);
                 break;
         }

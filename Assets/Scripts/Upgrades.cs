@@ -12,21 +12,28 @@ public class Upgrades : MonoBehaviour
     TextMeshProUGUI PierceCoinTXT;
     private int PierceLimit = 5;
     public static int PierceCounter;
-    private double PierceCoinRequirement = 30;
+    private double PierceCoinRequirement = 0;
 
     //FireRate
     public GameObject FireRateCoinReqirementTXT;
     TextMeshProUGUI FireRateCoinTXT;
     private int FireRateLimit = 7;
     public static int FireRateCounter;
-    private double FireRateCoinReqirement = 70;
+    private double FireRateCoinReqirement = 0;
 
     //Damage
     public GameObject DamageCoinRequirementTXT;
     TextMeshProUGUI DamageCoinTXT;
-    private int DamageLimit = 9;
+    private int DamageLimit = 6;
     public static int DamageCounter;
-    private double DamageCoinRequirement = 90;
+    private double DamageCoinRequirement = 0;
+
+    //ExtraBullet
+    public GameObject ExtraBulletCoinRequirementTXT;
+    TextMeshProUGUI ExtraBulletCoinTXT;
+    private int ExtraBulletLimit = 3;
+    public static int ExtraBulletCounter;
+    private double ExtraBulletCoinRequirement = 0;
 
 
     void Start()
@@ -35,12 +42,15 @@ public class Upgrades : MonoBehaviour
         FireRateCounter = 1;
         DamageCounter = 1;
         PierceCounter = 1;
+        ExtraBulletCounter = 1;
         PierceCoinTXT = PierceCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         FireRateCoinTXT = FireRateCoinReqirementTXT.GetComponent<TextMeshProUGUI>();
         DamageCoinTXT = DamageCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
+        ExtraBulletCoinTXT = ExtraBulletCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         PierceCoinTXT.text = "$" + PierceCoinRequirement.ToString();
         FireRateCoinTXT.text = "$" + FireRateCoinReqirement.ToString();
         DamageCoinTXT.text = "$" + DamageCoinRequirement.ToString();
+        ExtraBulletCoinTXT.text = "$" + ExtraBulletCoinRequirement.ToString();
     }
 
     void Update()
@@ -72,7 +82,7 @@ public class Upgrades : MonoBehaviour
         {
             PierceCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - PierceCoinRequirement);
-            PierceCoinRequirement = Math.Round(PierceCoinRequirement * 1.8);
+            PierceCoinRequirement = Math.Round(PierceCoinRequirement * 1.5);
             PierceCoinTXT.text = "$" + PierceCoinRequirement.ToString();
             if (PierceCounter >= PierceLimit)
             {
@@ -87,7 +97,7 @@ public class Upgrades : MonoBehaviour
         {
             FireRateCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - FireRateCoinReqirement);
-            FireRateCoinReqirement = Math.Round(FireRateCoinReqirement * 1.8);
+            FireRateCoinReqirement = Math.Round(FireRateCoinReqirement * 1.5);
             FireRateCoinTXT.text = "$" + FireRateCoinReqirement.ToString();
             if (FireRateCounter >= FireRateLimit)
             {
@@ -102,11 +112,26 @@ public class Upgrades : MonoBehaviour
         {
             DamageCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - DamageCoinRequirement);
-            DamageCoinRequirement = Math.Round(DamageCoinRequirement * 1.8);
+            DamageCoinRequirement = Math.Round(DamageCoinRequirement * 1.5);
             DamageCoinTXT.text = "$" + DamageCoinRequirement.ToString();
             if (DamageCounter >= DamageLimit)
             {
                 DamageCoinTXT.text = "MAX";
+            }
+        }
+    }
+
+    public void ExtraBulletUpgrade()
+    {
+        if (GameManager.Coins >= ExtraBulletCoinRequirement && !(ExtraBulletCounter >= ExtraBulletLimit))
+        {
+            ExtraBulletCounter++;
+            GameManager.Coins = Math.Round(GameManager.Coins - ExtraBulletCoinRequirement);
+            ExtraBulletCoinRequirement = Math.Round(ExtraBulletCoinRequirement * 1.5);
+            ExtraBulletCoinTXT.text = "$" + ExtraBulletCoinRequirement.ToString();
+            if (ExtraBulletCounter >= ExtraBulletLimit)
+            {
+                ExtraBulletCoinTXT.text = "MAX";
             }
         }
     }

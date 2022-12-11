@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7373934845287855978}
   - component: {fileID: 5310771030710660084}
-  - component: {fileID: 1605454888584180825}
   - component: {fileID: 444538963105558028}
   - component: {fileID: 5843549220372874140}
   - component: {fileID: 5277620979603907612}
+  - component: {fileID: 1605454888584180825}
   - component: {fileID: 1001843438825672992}
   m_Layer: 0
-  m_Name: FlyingEnemy
+  m_Name: Bat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,20 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1605454888584180825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3897443740675608957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52bbb79cb1711eb45800e36e3f9e49b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 5277620979603907612}
-  enemyRB: {fileID: 5843549220372874140}
 --- !u!70 &444538963105558028
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +117,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -153,7 +139,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 5843549220372874140}
-  enemySpeed: 4
+  enemySpeed: 6
+--- !u!114 &1605454888584180825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3897443740675608957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52bbb79cb1711eb45800e36e3f9e49b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 2
+  movement: {fileID: 5277620979603907612}
+  enemyRB: {fileID: 5843549220372874140}
 --- !u!95 &1001843438825672992
 Animator:
   serializedVersion: 4

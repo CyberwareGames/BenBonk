@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    private float health;
+    public float health;
     public EnemyMovement movement;
     public Rigidbody2D enemyRB;
+    private float pushback;
     void Start()
     {
         movement.enabled = true;
-        health = 3f;
     }
 
     void Update()
@@ -18,10 +18,11 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            GameManager.Coins += 15;
+            GameManager.Coins += 25;
             GameManager.Kills++;
             Destroy(gameObject);
         }
+        pushback = -(Upgrades.DamageCounter) -(Upgrades.PierceCounter/2f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -29,8 +30,8 @@ public class EnemyHealth : MonoBehaviour
         {
             decreaseHealth();
             movement.enabled = false;
-            enemyRB.velocity = new Vector2(-15f, enemyRB.velocity.y);
-            Invoke("EnableMovement", 0.11f);
+            enemyRB.velocity = new Vector2(pushback, enemyRB.velocity.y);
+            Invoke("EnableMovement", pushback/10f);
             
         }
     }
