@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9082973404680655622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -45.6, y: -26.8, z: -0.62693346}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 29
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: a4e0c905cfc9a17409eff8729be8fc9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,12 +98,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 9082973404680655622}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a068b58765eb3804db02c5852716dec5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6}
-  m_Size: {x: 4.6, y: 3.6}
+  m_Offset: {x: -0.3, y: 0}
+  m_Size: {x: 9, y: 6}
   m_Direction: 1
 --- !u!50 &1802496827746124263
 Rigidbody2D:
@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 50
+  m_Mass: 30
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 10
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1802496827746124263}
-  enemySpeed: 8
+  enemySpeed: 20
 --- !u!114 &6799323735338579490
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class Shoot : MonoBehaviour
     }
     private void Update()
     {
-        bullet.transform.localScale = new Vector3(0.6f * Upgrades.PierceCounter, 0.12f * Upgrades.DamageCounter, 1f);
+        bullet.transform.localScale = new Vector3(0.8f * Upgrades.PierceCounter, 0.2f * Upgrades.DamageCounter, 1f);
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKey(KeyCode.Mouse0))
@@ -38,12 +38,12 @@ public class Shoot : MonoBehaviour
         if(Upgrades.ExtraBulletCounter >= 2)
         {
             GameObject projectile2 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
-            projectile2.transform.right = transform.right + projectile2.transform.up/20f;
+            projectile2.transform.right = transform.right + projectile2.transform.up / 10f;
         }
         if (Upgrades.ExtraBulletCounter >= 3)
         {
             GameObject projectile3 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
-            projectile3.transform.right = transform.right - projectile3.transform.up / 20f;
+            projectile3.transform.right = transform.right - projectile3.transform.up / 10f;
         }
     }
 }
