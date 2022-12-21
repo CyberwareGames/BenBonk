@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         Wave9.SetActive(false);
         WaveNum = 1;
         Kills = 0;
-        Coins = 0;
+        Coins = 9999;
     }
 
     void Update()

@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1802496827746124263}
-  enemySpeed: 20
+  enemySpeed: 16
 --- !u!114 &6799323735338579490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bbb79cb1711eb45800e36e3f9e49b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 8
+  health: 6
   movement: {fileID: 82846066574435943}
   enemyRB: {fileID: 1802496827746124263}
 --- !u!95 &8384757979655130221

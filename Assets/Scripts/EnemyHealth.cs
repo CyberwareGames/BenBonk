@@ -31,7 +31,7 @@ public class EnemyHealth : MonoBehaviour
             decreaseHealth();
             movement.enabled = false;
             enemyRB.velocity = new Vector2(pushback, enemyRB.velocity.y);
-            Invoke("EnableMovement", pushback/10f);
+            Invoke("EnableMovement", pushback/8f);
             
         }
     }

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 2612107633012033255}
   - component: {fileID: 7771213791107171103}
   - component: {fileID: 4389814597199294095}
-  - component: {fileID: 5845856474555958513}
   - component: {fileID: 2652149871808989455}
   - component: {fileID: 8913763474086828362}
+  - component: {fileID: 5845856474555958513}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 29
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: d6f035a57d20ede4f885519aed155e31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,9 +102,9 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: 0}
-  m_Size: {x: 3.2, y: 3.84}
-  m_Direction: 0
+  m_Offset: {x: 0.2, y: 0.3}
+  m_Size: {x: 15, y: 15}
+  m_Direction: 1
 --- !u!50 &4389814597199294095
 Rigidbody2D:
   serializedVersion: 4
@@ -126,26 +126,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!95 &5845856474555958513
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6621756545627552878}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: dea401a286352324e80e959e5d8bf025, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2652149871808989455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +152,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52bbb79cb1711eb45800e36e3f9e49b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 6
+  health: 8
   movement: {fileID: 2652149871808989455}
   enemyRB: {fileID: 4389814597199294095}
+--- !u!95 &5845856474555958513
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621756545627552878}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dea401a286352324e80e959e5d8bf025, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

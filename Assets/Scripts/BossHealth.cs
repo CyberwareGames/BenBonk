@@ -29,7 +29,7 @@ public class BossHealth : MonoBehaviour
             decreaseHealth();
             movement.enabled = false;
             bossRB.velocity = new Vector2(pushback, bossRB.velocity.y);
-            Invoke("EnableMovement", pushback/10f);
+            Invoke("EnableMovement", pushback/8f);
 
         }
     }

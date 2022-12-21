@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BulletMovement : MonoBehaviour
 {
-    private float bulletSpeed = -220f;
+    private float bulletSpeed = -240f;
     private int pierce = 0;
     void Start()
     {

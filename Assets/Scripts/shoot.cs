@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
             {
                 FindObjectOfType<ScreenShaker>().shake = true;
                 Shooting();
-                nextAttackTime = Time.time + 1f / (Upgrades.FireRateCounter + 1f);
+                nextAttackTime = Time.time + 1.2f / (Upgrades.FireRateCounter + 1f);
             }
         }
     }
@@ -38,12 +38,12 @@ public class Shoot : MonoBehaviour
         if(Upgrades.ExtraBulletCounter >= 2)
         {
             GameObject projectile2 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
-            projectile2.transform.right = transform.right + projectile2.transform.up / 10f;
+            projectile2.transform.right = transform.right + projectile2.transform.up / 6f;
         }
         if (Upgrades.ExtraBulletCounter >= 3)
         {
             GameObject projectile3 = (GameObject)Instantiate(bullet, spawn.transform.position, Quaternion.identity);
-            projectile3.transform.right = transform.right - projectile3.transform.up / 10f;
+            projectile3.transform.right = transform.right - projectile3.transform.up / 6f;
         }
     }
 }

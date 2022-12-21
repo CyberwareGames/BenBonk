@@ -4,53 +4,79 @@ using TMPro;
 
 public class Upgrades : MonoBehaviour
 {
+    public bool UpgradedGun;
     public GameObject upgradePanel;
     bool upgradeActive = false;
 
     //Pierce
     public GameObject PierceCoinRequirementTXT;
     TextMeshProUGUI PierceCoinTXT;
-    private int PierceLimit = 5;
+    private double PierceCoinRequirement = 10;
+    public static int PierceLimit;
     public static int PierceCounter;
-    private double PierceCoinRequirement = 0;
 
     //FireRate
     public GameObject FireRateCoinReqirementTXT;
     TextMeshProUGUI FireRateCoinTXT;
-    private int FireRateLimit = 7;
+    private double FireRateCoinReqirement = 10;
+    public static int FireRateLimit;
     public static int FireRateCounter;
-    private double FireRateCoinReqirement = 0;
 
     //Damage
     public GameObject DamageCoinRequirementTXT;
     TextMeshProUGUI DamageCoinTXT;
-    private int DamageLimit = 6;
+    private double DamageCoinRequirement = 10;
+    public static int DamageLimit;
     public static int DamageCounter;
-    private double DamageCoinRequirement = 0;
+
 
     //ExtraBullet
     public GameObject ExtraBulletCoinRequirementTXT;
     TextMeshProUGUI ExtraBulletCoinTXT;
-    private int ExtraBulletLimit = 3;
+    private double ExtraBulletCoinRequirement = 10;
+    public static int ExtraBulletLimit;
     public static int ExtraBulletCounter;
-    private double ExtraBulletCoinRequirement = 0;
 
 
     void Start()
     {
         upgradePanel.SetActive(false);
-        FireRateCounter = 1;
-        DamageCounter = 1;
-        PierceCounter = 1;
-        ExtraBulletCounter = 1;
         PierceCoinTXT = PierceCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         FireRateCoinTXT = FireRateCoinReqirementTXT.GetComponent<TextMeshProUGUI>();
         DamageCoinTXT = DamageCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
         ExtraBulletCoinTXT = ExtraBulletCoinRequirementTXT.GetComponent<TextMeshProUGUI>();
-        PierceCoinTXT.text = "$" + PierceCoinRequirement.ToString();
-        FireRateCoinTXT.text = "$" + FireRateCoinReqirement.ToString();
-        DamageCoinTXT.text = "$" + DamageCoinRequirement.ToString();
-        ExtraBulletCoinTXT.text = "$" + ExtraBulletCoinRequirement.ToString();
+
+        if (UpgradedGun)
+        {
+            PierceCounter = 2;
+            PierceLimit = 6;
+            FireRateCounter = 2;
+            FireRateLimit = 7;
+            DamageCounter = 2;
+            DamageLimit = 7;
+            ExtraBulletCounter = 1;
+            ExtraBulletLimit = 3;
+            ExtraBulletCoinTXT.text = "(lvl " + ExtraBulletCounter.ToString() + ") $" + ExtraBulletCoinRequirement.ToString();
+        }
+        else
+        {
+            PierceCounter = 1;
+            PierceLimit = 3;
+            FireRateCounter = 1;
+            FireRateLimit = 3;
+            DamageCounter = 1;
+            DamageLimit = 4;
+            ExtraBulletCounter = 1;
+            ExtraBulletLimit = 1;
+            ExtraBulletCoinTXT.text = "MAX";
+        }
+
+
+        PierceCoinTXT.text = "(lvl " + PierceCounter.ToString() + ") $" + PierceCoinRequirement.ToString();
+        FireRateCoinTXT.text = "(lvl " + FireRateCounter.ToString() + ") $" + FireRateCoinReqirement.ToString();
+        DamageCoinTXT.text = "(lvl " + DamageCounter.ToString() + ") $" + DamageCoinRequirement.ToString();
+
+
     }
 
     void Update()
@@ -83,7 +109,7 @@ public class Upgrades : MonoBehaviour
             PierceCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - PierceCoinRequirement);
             PierceCoinRequirement = Math.Round(PierceCoinRequirement * 1.5);
-            PierceCoinTXT.text = "$" + PierceCoinRequirement.ToString();
+            PierceCoinTXT.text = "(lvl " + PierceCounter.ToString() + ") $" + PierceCoinRequirement.ToString();
             if (PierceCounter >= PierceLimit)
             {
                 PierceCoinTXT.text = "MAX";
@@ -98,7 +124,7 @@ public class Upgrades : MonoBehaviour
             FireRateCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - FireRateCoinReqirement);
             FireRateCoinReqirement = Math.Round(FireRateCoinReqirement * 1.5);
-            FireRateCoinTXT.text = "$" + FireRateCoinReqirement.ToString();
+            FireRateCoinTXT.text = "(lvl " + FireRateCounter.ToString() + ") $" + FireRateCoinReqirement.ToString();
             if (FireRateCounter >= FireRateLimit)
             {
                 FireRateCoinTXT.text = "MAX";
@@ -113,7 +139,7 @@ public class Upgrades : MonoBehaviour
             DamageCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - DamageCoinRequirement);
             DamageCoinRequirement = Math.Round(DamageCoinRequirement * 1.5);
-            DamageCoinTXT.text = "$" + DamageCoinRequirement.ToString();
+            DamageCoinTXT.text = "(lvl " + DamageCounter.ToString() + ") $" + DamageCoinRequirement.ToString();
             if (DamageCounter >= DamageLimit)
             {
                 DamageCoinTXT.text = "MAX";
@@ -128,7 +154,7 @@ public class Upgrades : MonoBehaviour
             ExtraBulletCounter++;
             GameManager.Coins = Math.Round(GameManager.Coins - ExtraBulletCoinRequirement);
             ExtraBulletCoinRequirement = Math.Round(ExtraBulletCoinRequirement * 1.5);
-            ExtraBulletCoinTXT.text = "$" + ExtraBulletCoinRequirement.ToString();
+            ExtraBulletCoinTXT.text = "(lvl " + ExtraBulletCounter.ToString() + ") $" + ExtraBulletCoinRequirement.ToString();
             if (ExtraBulletCounter >= ExtraBulletLimit)
             {
                 ExtraBulletCoinTXT.text = "MAX";

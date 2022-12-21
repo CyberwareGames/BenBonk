@@ -53,6 +53,7 @@ public class PlayerController : MonoBehaviour
             Upgrades.PierceCounter = 1;
             Upgrades.FireRateCounter = 1;
             Upgrades.DamageCounter = 1;
+            Upgrades.ExtraBulletCounter = 1;
             Time.timeScale = 0f;
         }
     }
