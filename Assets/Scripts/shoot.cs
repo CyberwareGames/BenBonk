@@ -8,7 +8,7 @@ public class Shoot : MonoBehaviour
 
     private void Start()
     {
-        nextAttackTime = 0;
+        nextAttackTime = 0f;
     }
     private void Update()
     {
@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
             {
                 FindObjectOfType<ScreenShaker>().shake = true;
                 Shooting();
-                nextAttackTime = Time.time + 1.2f / (Upgrades.FireRateCounter + 1f);
+                nextAttackTime = Time.time + 1.3f / (Upgrades.FireRateCounter + 1f);
             }
         }
     }

@@ -8,13 +8,17 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundLayer;
     public Rigidbody2D rb;
     float move;
-    public float playerSpeed;
-    public float jumpPower = 40f;
+    private float playerSpeed;
+    private float jumpPower = 57;
     public AudioSource Jump;
 
 
     void Start()
     {
+        Upgrades.PierceCounter = 1;
+        Upgrades.FireRateCounter = 1;
+        Upgrades.DamageCounter = 1;
+        Upgrades.ExtraBulletCounter = 1;
         playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -24,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded())
         {
-            playerSpeed = 28f;
+            playerSpeed = 25f;
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump.Play();
@@ -50,6 +54,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             FindObjectOfType<GameManager>().LosePanel.SetActive(true);
+            PlayerPrefs.SetInt("Gems", GameManager.Gems);
             Upgrades.PierceCounter = 1;
             Upgrades.FireRateCounter = 1;
             Upgrades.DamageCounter = 1;

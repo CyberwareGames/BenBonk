@@ -17,11 +17,13 @@ public class GameManager : MonoBehaviour
     public static int Kills;
     public static double Coins;
     public static int WaveNum;
+    public static int Gems;
 
     public GameObject LosePanel;
     void Start()
     {
         Time.timeScale = 1f;
+        Gems = PlayerPrefs.GetInt("Gems", 0);
         LosePanel.SetActive(false);
         Wave1.SetActive(false);
         Wave2.SetActive(false);
